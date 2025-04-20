@@ -1,0 +1,168 @@
+/* Background styling */
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/mauritanian_bg.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.repair-form-container {
+    background: #ffffff;
+    padding: 40px;
+    max-width: 600px;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #5a5a5a;
+    margin-bottom: 20px;
+}
+
+/* Form inputs and labels */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input:focus, textarea:focus {
+    border-color: #2196F3;
+    outline: none;
+}
+
+textarea {
+    height: 100px;
+}
+
+/* Button styling */
+.submit-btn {
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.submit-btn:hover {
+    background-color: #0b7dda;
+}
+
+.submit-btn:active {
+    background-color: #055a99;
+}
+
+button[type="submit"]:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 600px) {
+    .repair-form-container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .form-group {
+        margin-bottom: 12px;
+    }
+
+    input, textarea {
+        font-size: 13px;
+    }
+}
+
+/* إعدادات عامة للصفحة
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/mauritanian_bg.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* حاوية الصفحة */
+.repair-container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+}
+
+/* عنوان الصفحة */
+.repair-container h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #4caf50;
+}
+
+/* تنسيق حقول النموذج */
+.form-group {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+/* زر الإرسال */
+button[type="submit"] {
+    background: #02a80f;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background: #02ca02;
+} 
