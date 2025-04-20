@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>طلب المنتج</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #fdfcfb, #e2d1c3);
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            background-color: #d4af37; /* ذهبي */
+            color: black;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #c39b2f;
+        }
+    </style>
+</head>
+<body>
+    
+
+<div class="container">
+    <h2>طلب المنتج: {{ product.name }}</h2>
+
+    <!-- صورة المنتج -->
+    {% if product.image %}
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="product-image">
+    {% endif %}
+
+    <!-- نموذج الطلب -->
+    <form method="post">
+        {% csrf_token %}
+        {% comment %} {{ form.as_p }} {% endcomment %}
+        <input type="text" name="customer_name" placeholder="الاسم الكامل" required>
+        <input type="text" name="customer_phone" placeholder="رقم الهاتف" required>
+        <input type="text" name="customer_address" placeholder="العنوان" required>
+        <!-- طريقة الدفع -->
+        <label for="payment_method">طريقة الدفع:</label>
+        <select name="payment_method" required>
+            <option value="">اختر طريقة الدفع</option>
+            <option value="عند الاستلام">عند الاستلام</option>
+            <option value="تحويل بنكي">تحويل بنكي</option>
+        </select>
+
+        <!-- طريقة التوصيل -->
+        <label for="delivery_method">طريقة التوصيل:</label>
+        <select name="delivery_method" required>
+            <option value="">اختر طريقة التوصيل</option>
+            <option value="توصيل للمنزل">توصيل للمنزل</option>
+            <option value="استلام من الفرع">استلام من الفرع</option>
+        </select>
+
+        <button type="submit">إرسال الطلب</button>
+    </form>
+</div>
+
+</body>
+</html>

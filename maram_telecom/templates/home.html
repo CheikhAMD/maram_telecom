@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>المرام تلكوم</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+
+    {% comment %} <style>
+        #overview h2, #overview p {
+            font-family: 'Cairo', sans-serif
+            color: black !important;
+            background-color: white;
+            color: black;
+            padding: 10px;
+            border-radius: 8px;
+            {% comment %} font-family: 'Segoe UI', sans-serif; {% endcomment %}
+        {% comment %} } {% endcomment %}
+    
+</head>
+<body>
+    <div class="hero-section" id="hero">
+        <h1>مرحباً بكم في موقع المرام تلكوم</h1>
+        <div class="hero-buttons">
+            <a href="{% url 'store' %}">دخول المتجر</a>
+            <a href="{% url 'repair' %}">طلب صيانة</a>
+        </div>
+        <!-- زر لمحة عن الموقع -->
+        <button id="overview-btn" class="overview-btn">لمحة عن الموقع</button>
+<!-- قسم لمحة عن الموقع -->
+
+    {% comment %} <h2>لمحة عن الموقع</h2>
+    <p>
+        هذا الموقع مقدم من المرام تلكوم.<br>
+        موقع المرام تلكوم موقع بسيط يتيح الخدمات التالية <br>
+        1-شراء المنتوجات عن طريق صفحة متجر حيث بإمكان المستخدم  البحث عن منتجه <br>
+        وطلبه فورا من أصحاب المحل عن طريق إدراج معلوماته وطرق التوصيل وطرق الدفع بسهولة وأمان<br>
+        <br>2- صيانة الأجهزة  عن طريق صفحة الصيانة تتيح للمستخدم إخال نوع هاتفه ووصف مشكلته <br>وإرسال طلب الصيانة وفور إرسال الطلب يتم التواصل معك وتحديد   <br>موعد الإصلاح.<br>
+        نرجو أن تعجبكم خدماتنا💚<br>
+        <br>
+        المطور: cheikh ahmed
+        جميع الحقوق محفوظة © 2025
+
+    </p> {% endcomment %}
+    {% comment %} <div class="overview-section" id="overview" style="background-color: white; padding: 50px; text-align: center;">
+        <h2 style="font-family: 'Cairo', sans-serif; font-size: 32px; color: black; margin-bottom: 20px;">من نحن</h2>
+        <p style="font-family: 'Cairo', sans-serif; font-size: 18px; color: black; max-width: 800px; margin: 0 auto;">
+            المرام تلكوم هو متجر متخصص في بيع الهواتف الذكية وتقديم خدمات الصيانة بجودة عالية وسرعة في التنفيذ.
+            نضمن لك تجربة موثوقة ومريحة، مع حرصنا على رضا عملائنا وتقديم أفضل الحلول التقنية في السوق الموريتاني.
+        </p>
+    </section> {% endcomment %}
+ <div class="overview-section" id="overview" style="background-color: white; padding: 50px; text-align: center;">
+        <h2 style="font-family: 'Cairo', sans-serif; font-size: 32px; color: black; margin-bottom: 20px;">من نحن</h2>
+        <p style="font-family: 'Cairo', sans-serif; font-size: 18px; color: black; max-width: 900px; margin: 0 auto; line-height: 1.8;">
+            موقع <strong style="color: rgb(255, 166, 0);">المرام تلكوم</strong> هو منصة بسيطة وموثوقة تقدم لك خدمات متكاملة تشمل:
+            <br><br>
+            <strong style="color: rgb(255, 166, 0);">1- شراء المنتجات:</strong> من خلال صفحة المتجر، يمكن للمستخدم البحث عن المنتج المطلوب وطلبه مباشرة من أصحاب المحل، عبر إدخال معلوماته وطرق التوصيل والدفع بسهولة وأمان.
+            <br><br>
+            <strong style="color: rgb(255, 166, 0);">2- صيانة الأجهزة:</strong> من خلال صفحة الصيانة، يمكن للمستخدم إدخال نوع الهاتف، وصف المشكلة، وإرسال طلب الصيانة. بعد إرسال الطلب، يتم التواصل معه وتحديد موعد مناسب للإصلاح.
+            <br><br>
+            نأمل أن تنال خدماتنا رضاكم، ونسعى دائمًا لتقديم الأفضل.
+            <br><br>
+
+            <span style="font-size: 16px; color: gray;">المطور: Cheikh Ahmed</span> <br>
+        <span style="font-size: 16px; color: gray;">جميع الحقوق محفوظة © 2025</span>
+
+        </p>
+    </section>
+    
+    <button id="back-btn" class="back-btn">رجوع</button>
+
+</div>
+
+
+    
+</body>
+<script>
+    window.addEventListener('DOMContentLoaded', function(){
+        // عند الضغط على زر لمحة عن الموقع: يصغر قسم الـ hero ويظهر قسم overview
+        document.getElementById('overview-btn').addEventListener('click', function(){
+            document.getElementById('hero').classList.add('collapsed');
+            document.getElementById('overview').classList.add('visible');
+            // اختياري: يمكن عمل scroll لطيف للأسفل
+            window.scrollTo({ top: document.getElementById('overview').offsetTop, behavior: 'smooth' });
+        });
+        
+        // عند الضغط على زر رجوع: يتم إزالة الأصناف وإرجاع الصفحة لحالتها الطبيعية
+        document.getElementById('back-btn').addEventListener('click', function(){
+            document.getElementById('hero').classList.remove('collapsed');
+            document.getElementById('overview').classList.remove('visible');
+            // يعمل scroll إلى أعلى الصفحة بسلاسة
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    });
+    </script>
+    
+</html>
+    </div>
+</body>
+</html>

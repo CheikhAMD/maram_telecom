@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>طلب صيانة - المرام تلكوم</title>
+  <link rel="stylesheet" href="{% static 'css/repair.css' %}">
+</head>
+<body>
+  <div class="repair-container">
+    <h1>طلب صيانة الهاتف</h1>
+    <form method="post" action="{% url 'repair' %}">
+      {% csrf_token %}
+
+      <div class="form-group">
+        <label for="id_user_name">الاسم الكامل</label>
+        <input type="text" id="id_user_name" name="user_name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="id_phone_model">نوع الهاتف</label>
+        <input type="text" id="id_phone_model" name="phone_model" required>
+      </div>
+
+      <div class="form-group">
+        <label for="id_issue_description">وصف المشكلة</label>
+        <textarea id="id_issue_description" name="issue_description" rows="4" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="id_contact_info">معلومات التواصل</label>
+        <input type="text" id="id_contact_info" name="contact_info" required>
+      </div>
+
+      <button type="submit" class="submit-btn">إرسال الطلب</button>
+    </form>
+  </div>
+</body>
+</html>
+
+
+
