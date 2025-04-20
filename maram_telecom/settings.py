@@ -140,10 +140,18 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
+    # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ]
+# هذا ضروري للإنتاج (Render)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # STATIC_URL = '/static/'
 
 # STATICFILES_DIRS = [
 #     BASE_DIR / "static",
 # ]
+
+ALLOWED_HOSTS = ['maram-telecom-2.onrender.com', 'localhost', '127.0.0.1']
+
+
+
 
