@@ -137,13 +137,14 @@ MEDIA_ROOT = BASE_DIR / 'media'
 import os
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     # STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ]
 # هذا ضروري للإنتاج (Render)
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 # STATIC_URL = '/static/'
 
 # STATICFILES_DIRS = [
@@ -153,5 +154,9 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 ALLOWED_HOSTS = ['maram-telecom-2.onrender.com', 'localhost', '127.0.0.1']
 
 
+# تشغيل خدمة الملفات الثابتة (CSS, JS, Images) على Render
+if not DEBUG:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    MIDDLEWARE.insert(1, 'whitenoise.middleware.WhiteNoiseMiddleware')
 
 
